@@ -1,0 +1,10 @@
+language: erlang
+
+env:
+  - LUA="lua"
+  - LUA="luajit"
+
+install:
+  - "sudo apt-get install luajit"
+
+script: "$LUA test.lua"
