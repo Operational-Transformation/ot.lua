@@ -1,1 +1,1 @@
-[![Build Status](https://secure.travis-ci.org/timjb/redis-ot.png)](http://travis-ci.org/timjb/redis-ot)
+[![Build Status](https://secure.travis-ci.org/timjb/ot.lua.png)](http://travis-ci.org/timjb/ot.lua)
