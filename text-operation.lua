@@ -55,6 +55,25 @@ setmetatable(TextOperation, {
   end
 })
 
+function TextOperation.fromJSON(jsonOps)
+  local operation = TextOperation.new()
+  for i=1, #jsonOps do
+    local jsonOp = jsonOps[i]
+    if isRetain(jsonOp) then
+      operation:retain(jsonOp)
+    elseif isDelete(jsonOp) then
+      operation:delete(jsonOp)
+    else
+      operation:insert(jsonOp)
+    end
+  end
+  return operation
+end
+
+function TextOperation:toJSON()
+  return self.ops
+end
+
 function TextOperation:__eq(other)
   if #self.ops ~= #other.ops then
     return false

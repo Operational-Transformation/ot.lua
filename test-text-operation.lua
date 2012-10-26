@@ -1,6 +1,13 @@
 local TextOperation = require "text-operation"
 require "test-helpers"
 
+local testJsonId = repeatTest(function()
+  local doc = randomString()
+  local operation = randomOperation(doc)
+  local operation2 = TextOperation.fromJSON(operation:toJSON())
+  assert(operation == operation2)
+end)
+
 local function testAppend()
   o = TextOperation()
     :delete(0)
@@ -52,6 +59,7 @@ local testTransform = repeatTest(function()
 end)
 
 return function()
+  testJsonId()
   testAppend()
   testLenDifference()
   testApply()
