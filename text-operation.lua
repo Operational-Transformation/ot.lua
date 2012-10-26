@@ -1,19 +1,19 @@
 local TextOperation = {}
 TextOperation.__index = TextOperation
 
-function isRetain(op)
+local function isRetain(op)
   return type(op) == "number" and op > 0
 end
 
-function isDelete(op)
+local function isDelete(op)
   return type(op) == "number" and op < 0
 end
 
-function isInsert(op)
+local function isInsert(op)
   return type(op) == "string"
 end
 
-function opLen(op)
+local function opLen(op)
   if type(op) == "string" then
     return #op
   elseif op < 0 then
@@ -23,7 +23,7 @@ function opLen(op)
   end
 end
 
-function shorten(op, by)
+local function shorten(op, by)
   if type(op) == "string" then
     return string.sub(op, 1 + by)
   elseif op < 0 then
@@ -33,7 +33,7 @@ function shorten(op, by)
   end
 end
 
-function shortenOps(a, b)
+local function shortenOps(a, b)
   local lenA = opLen(a)
   local lenB = opLen(b)
   if lenA == lenB then
@@ -145,7 +145,7 @@ function TextOperation:__call(doc)
   local len = 1
 
   for i=1, #self.ops do
-    op = self.ops[i]
+    local op = self.ops[i]
     if isRetain(op) then
       if len + op > #doc + 1 then
         error("Cannot apply operation: operation is too long")
