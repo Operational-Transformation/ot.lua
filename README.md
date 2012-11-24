@@ -1,1 +1,1 @@
-[![Build Status](https://secure.travis-ci.org/timjb/ot.lua.png)](http://travis-ci.org/timjb/ot.lua)
+[![Build Status](https://secure.travis-ci.org/Operational-Transformation/ot.lua.png)](http://travis-ci.org/Operational-Transformation/ot.lua)
