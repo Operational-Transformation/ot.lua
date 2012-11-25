@@ -4,9 +4,7 @@ env:
   - LUA="lua"
 
 install:
-  - "sudo apt-get install lua5.1 luarocks tree"
+  - "sudo apt-get install lua5.1 luarocks"
   - "sudo luarocks make rockspecs/ot-0.1.0-1.rockspec"
-  - "sudo tree /usr/local/share/lua"
-  - "sudo tree /usr/local/lib/lua"
 
 script: "$LUA test/test.lua"
