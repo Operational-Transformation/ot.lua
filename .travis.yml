@@ -6,4 +6,4 @@ env:
 install:
   - "sudo apt-get install lua5.2"
 
-script: "$LUA test.lua"
+script: "$LUA test/test.lua"

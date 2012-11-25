@@ -1,5 +1,5 @@
-local TextOperation = require "text-operation"
-require "test-helpers"
+local TextOperation = require 'ot.text-operation'
+require 'test/helpers'
 
 local testJsonId = repeatTest(function()
   local doc = randomString()

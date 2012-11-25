@@ -1,8 +1,8 @@
-local TextOperation = require 'text-operation'
-local Server = require 'server'
-local Client = require 'client'
-local MemoryBackend = require 'memory-backend'
-require 'test-helpers'
+local TextOperation = require 'ot.text-operation'
+local Server = require 'ot.server'
+local Client = require 'ot.client'
+local MemoryBackend = require 'ot.memory-backend'
+require 'test/helpers'
 
 
 local MyClient = setmetatable({}, { __index = Client })

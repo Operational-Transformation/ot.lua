@@ -1,4 +1,4 @@
-local TextOperation = require "text-operation"
+local TextOperation = require "ot.text-operation"
 
 function randomInt(max)
   return math.floor(math.random() * max)
