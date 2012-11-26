@@ -47,6 +47,7 @@ local testCompose = repeatTest(function()
   local docA = a(doc)
   local b = randomOperation(docA)
   local ab = a:compose(b)
+  assert(ab == a .. b)
   assert(b(docA) == ab(doc))
 end)
 

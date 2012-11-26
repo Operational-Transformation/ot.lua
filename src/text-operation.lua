@@ -278,6 +278,11 @@ function TextOperation:compose(other)
   return operation
 end
 
+-- a .. b is a synonym for a:compose(b).
+function TextOperation.__concat(a, b)
+  return a:compose(b)
+end
+
 -- Transform takes two operations A and B that happened concurrently and
 -- returns two operations A' and B' such that
 -- apply(apply(S, A), B') = apply(apply(S, B), A'). This function is the heart
