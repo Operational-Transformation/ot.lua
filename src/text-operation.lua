@@ -97,7 +97,7 @@ function TextOperation:toJSON()
 end
 
 -- Tests two operations for equality.
-function TextOperation:__eq(other)
+function TextOperation.__eq(self, other)
   if #self.ops ~= #other.ops then
     return false
   end
