@@ -56,6 +56,7 @@ local testTransform = repeatTest(function()
   local a = randomOperation(doc)
   local b = randomOperation(doc)
   aPrime, bPrime = TextOperation.transform(a, b)
+  assert(b .. aPrime == a .. bPrime)
   assert(aPrime(b(doc)) == bPrime(a(doc)))
 end)
 

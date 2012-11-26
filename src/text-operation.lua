@@ -130,6 +130,18 @@ function TextOperation:insert(s)
   if #s ~= 0 then
     if isInsert(ops[#ops]) then
       ops[#ops] = ops[#ops] .. s
+    elseif isDelete(ops[#ops]) then
+      -- It doesn't matter when an operation is applied whether the operation
+      -- is delete(3), insert("something") or insert("something"), delete(3).
+      -- Here we enforce that in this case, the insert op always comes first.
+      -- This makes all operations that have the same effect when applied to
+      -- a document of the right length equal in respect to the `equals` method.
+      if isInsert(ops[#ops-1]) then
+        ops[#ops-1] = ops[#ops-1] .. s
+      else
+        table.insert(ops, ops[#ops])
+        ops[#ops-1] = s
+      end
     else
       table.insert(ops, s)
     end
